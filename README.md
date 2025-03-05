@@ -7,7 +7,6 @@
 # Laravel Whatsapp Widget
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/laravel-plausible.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-plausible)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-plausible/run-tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/jeffersongoncalves/laravel-plausible/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-plausible/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-plausible/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/laravel-plausible.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-plausible)
 
