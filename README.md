@@ -4,7 +4,7 @@
 
 </div>
 
-# Laravel Whatsapp Widget
+# Laravel Plausible
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/laravel-plausible.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-plausible)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-plausible/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-plausible/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amaster)
