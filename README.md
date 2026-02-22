@@ -12,26 +12,62 @@
 
 A lightweight Laravel package that seamlessly integrates Plausible Analytics into your Blade views. Plausible.io is a privacy-friendly, open-source alternative to Google Analytics.
 
+Settings are stored in the database using [spatie/laravel-settings](https://github.com/spatie/laravel-settings), making it easy to manage from an admin panel or programmatically.
+
 ## Installation
 
-You can install the package via composer:
+Install the package via Composer:
 
 ```bash
 composer require jeffersongoncalves/laravel-plausible
 ```
 
-## Usage
-
-Publish config file.
+Publish and run the settings migration:
 
 ```bash
-php artisan vendor:publish --tag=plausible-config
+php artisan vendor:publish --tag=plausible-settings-migrations
+php artisan migrate
 ```
 
-Add head template.
+## Usage
+
+### Include the script in your layout
+
+Add the following to your Blade layout (inside `<head>`):
+
+```blade
+@include('plausible::script')
+```
+
+The script tag will only be rendered when the `domains` setting is configured.
+
+### Configure settings
+
+You can update the settings programmatically:
 
 ```php
-@include('plausible::script')
+use JeffersonGoncalves\Plausible\Settings\PlausibleSettings;
+
+$settings = app(PlausibleSettings::class);
+$settings->domains = 'example.com';
+$settings->save();
+```
+
+#### Available settings
+
+| Setting | Type | Default | Description |
+|---------|------|---------|-------------|
+| `domains` | `?string` | `null` | Domain(s) to track. Supports rollup reporting with comma-separated domains. |
+| `host_analytics` | `string` | `https://plausible.io` | Plausible host URL. Change this if you are self-hosting Plausible. |
+
+### Self-hosted Plausible
+
+If you are self-hosting Plausible, update the `host_analytics` setting:
+
+```php
+$settings = app(PlausibleSettings::class);
+$settings->host_analytics = 'https://analytics.example.com';
+$settings->save();
 ```
 
 ## Testing
@@ -54,7 +90,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Jèfferson Gonçalves](https://github.com/jeffersongoncalves)
+- [Jefferson Goncalves](https://github.com/jeffersongoncalves)
 - [All Contributors](../../contributors)
 
 ## License

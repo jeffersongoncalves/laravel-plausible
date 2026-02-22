@@ -1,4 +1,6 @@
-@if(!empty(config('plausible.domains')))
-    <script defer data-domain="{{ config('plausible.domains') }}"
-            src="{{ config('plausible.host_analytics') }}/js/script.js"></script>
+@php($plausible = app(\JeffersonGoncalves\Plausible\Settings\PlausibleSettings::class))
+
+@if(!empty($plausible->domains))
+    <script defer data-domain="{{ $plausible->domains }}"
+            src="{{ $plausible->host_analytics }}/js/script.js"></script>
 @endif
