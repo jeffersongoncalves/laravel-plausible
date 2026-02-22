@@ -22,7 +22,14 @@ Install the package via Composer:
 composer require jeffersongoncalves/laravel-plausible
 ```
 
-Publish and run the settings migration:
+Publish and run the settings table migration from `spatie/laravel-settings` (if not already done):
+
+```bash
+php artisan vendor:publish --provider="Spatie\LaravelSettings\LaravelSettingsServiceProvider" --tag="migrations"
+php artisan migrate
+```
+
+Publish and run the Plausible settings migration:
 
 ```bash
 php artisan vendor:publish --tag=plausible-settings-migrations
@@ -69,6 +76,10 @@ $settings = app(PlausibleSettings::class);
 $settings->host_analytics = 'https://analytics.example.com';
 $settings->save();
 ```
+
+## Filament Integration
+
+If you use [Filament](https://filamentphp.com), check out [filament-plausible](https://github.com/jeffersongoncalves/filament-plausible) for a settings page UI and automatic script injection in your Filament panel.
 
 ## Testing
 
