@@ -77,10 +77,6 @@ $settings->host_analytics = 'https://analytics.example.com';
 $settings->save();
 ```
 
-## Filament Integration
-
-If you use [Filament](https://filamentphp.com), check out [filament-plausible](https://github.com/jeffersongoncalves/filament-plausible) for a settings page UI and automatic script injection in your Filament panel.
-
 ## Testing
 
 ```bash
