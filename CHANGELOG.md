@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## v2.0.1 - 2026-02-24
+
+### What's Changed
+
+- Add Laravel 13.x support in composer.json
+- Add orchestra/testbench ^11.0 for Laravel 13 testing
+
 ## v2.0.0 - 2026-02-22
 
 ### Breaking Changes
@@ -21,12 +28,14 @@ All notable changes to this project will be documented in this file.
    ```bash
    composer require jeffersongoncalves/laravel-plausible:^2.0
    
+   
    ```
 2. Publish and run the settings migration:
    
    ```bash
    php artisan vendor:publish --tag=plausible-settings-migrations
    php artisan migrate
+   
    
    ```
 3. Configure settings programmatically:
@@ -37,6 +46,7 @@ All notable changes to this project will be documented in this file.
    $settings = app(PlausibleSettings::class);
    $settings->domains = 'example.com';
    $settings->save();
+   
    
    ```
 4. Remove old `PLAUSIBLE_DOMAINS` and `PLAUSIBLE_HOST_ANALYTICS` entries from your `.env` file.
