@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## v2.0.2 - 2026-04-26
+
+### What's Changed
+
+* build(deps): bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/jeffersongoncalves/laravel-plausible/pull/12
+* build(deps): bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/jeffersongoncalves/laravel-plausible/pull/13
+
+**Full Changelog**: https://github.com/jeffersongoncalves/laravel-plausible/compare/v2.0.1...v2.0.2
+
 ## v2.0.1 - 2026-02-24
 
 ### What's Changed
@@ -29,12 +38,14 @@ All notable changes to this project will be documented in this file.
    composer require jeffersongoncalves/laravel-plausible:^2.0
    
    
+   
    ```
 2. Publish and run the settings migration:
    
    ```bash
    php artisan vendor:publish --tag=plausible-settings-migrations
    php artisan migrate
+   
    
    
    ```
@@ -46,6 +57,7 @@ All notable changes to this project will be documented in this file.
    $settings = app(PlausibleSettings::class);
    $settings->domains = 'example.com';
    $settings->save();
+   
    
    
    ```
