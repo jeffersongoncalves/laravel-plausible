@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v2.0.3 - 2026-05-23
+
+**Full Changelog**: https://github.com/jeffersongoncalves/laravel-plausible/compare/v2.0.2...v2.0.3
+
 ## v2.0.2 - 2026-04-26
 
 ### What's Changed
@@ -39,12 +43,14 @@ All notable changes to this project will be documented in this file.
    
    
    
+   
    ```
 2. Publish and run the settings migration:
    
    ```bash
    php artisan vendor:publish --tag=plausible-settings-migrations
    php artisan migrate
+   
    
    
    
@@ -57,6 +63,7 @@ All notable changes to this project will be documented in this file.
    $settings = app(PlausibleSettings::class);
    $settings->domains = 'example.com';
    $settings->save();
+   
    
    
    
