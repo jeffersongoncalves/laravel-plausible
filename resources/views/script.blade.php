@@ -2,5 +2,5 @@
 
 @if(!empty($plausible->domains))
     <script defer data-domain="{{ $plausible->domains }}"
-            src="{{ $plausible->host_analytics }}/js/script.js"></script>
+            src="{{ rtrim($plausible->host_analytics, '/') }}/js/script.js"></script>
 @endif

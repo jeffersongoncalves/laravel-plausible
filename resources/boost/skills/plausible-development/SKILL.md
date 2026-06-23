@@ -17,7 +17,7 @@ description: Development guide for the laravel-plausible package -- Plausible An
 
 ### Requirements
 
-- PHP 8.2 or 8.3
+- PHP 8.2, 8.3, or 8.4
 - Laravel 11, 12, or 13
 - `spatie/laravel-settings` ^3.0
 - `spatie/laravel-package-tools` ^1.14.0
@@ -87,7 +87,7 @@ The script only renders when `domains` is not empty. Uses `defer` for non-blocki
 
 @if(!empty($plausible->domains))
     <script defer data-domain="{{ $plausible->domains }}"
-            src="{{ $plausible->host_analytics }}/js/script.js"></script>
+            src="{{ rtrim($plausible->host_analytics, '/') }}/js/script.js"></script>
 @endif
 ```
 
