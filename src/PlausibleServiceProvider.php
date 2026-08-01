@@ -32,8 +32,8 @@ class PlausibleServiceProvider extends PackageServiceProvider
         $migrationsPath = __DIR__.'/../database/settings';
 
         Config::set('settings.migrations_paths', array_merge(
-            Config::get('settings.migrations_paths', []),
-            [$migrationsPath]
+            [$migrationsPath],
+            Config::get('settings.migrations_paths', [])
         ));
 
         $this->publishes([
