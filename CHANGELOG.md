@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## v2.0.4 - 2026-08-01
+
+### What's Changed
+
+* build(deps): bump actions/checkout from 6 to 7 by @dependabot[bot] in https://github.com/jeffersongoncalves/laravel-plausible/pull/14
+* build(deps): bump actions/checkout from 6 to 7 by @dependabot[bot] in https://github.com/jeffersongoncalves/laravel-plausible/pull/15
+
+**Full Changelog**: https://github.com/jeffersongoncalves/laravel-plausible/compare/v2.0.3...v2.0.4
+
 ## v2.0.3 - 2026-05-23
 
 **Full Changelog**: https://github.com/jeffersongoncalves/laravel-plausible/compare/v2.0.2...v2.0.3
@@ -44,12 +53,14 @@ All notable changes to this project will be documented in this file.
    
    
    
+   
    ```
 2. Publish and run the settings migration:
    
    ```bash
    php artisan vendor:publish --tag=plausible-settings-migrations
    php artisan migrate
+   
    
    
    
@@ -63,6 +74,7 @@ All notable changes to this project will be documented in this file.
    $settings = app(PlausibleSettings::class);
    $settings->domains = 'example.com';
    $settings->save();
+   
    
    
    
