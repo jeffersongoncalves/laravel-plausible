@@ -79,6 +79,10 @@ $settings->host_analytics = 'https://analytics.example.com';
 $settings->save();
 ```
 
+## Content Security Policy
+
+When your app sets a CSP nonce through Laravel's Vite (`Vite::useCspNonce()`, as [laravel-security-headers](https://github.com/jeffersongoncalves/laravel-security-headers) does), every `<script>` this package renders carries it, so a `script-src 'self' 'nonce-{nonce}'` policy works without `'unsafe-inline'`. Scripts loaded afterwards from the vendor's own CDN still need that host in `script-src` (and its API in `connect-src`).
+
 ## Testing
 
 ```bash
