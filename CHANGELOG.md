@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## v3.2.0 - 2026-11-08
+
+### Added
+
+- `script_id` setting: renders Plausible's current per-site snippet (`<script async src=".../js/pa-XXXX.js">` + `plausible.init()`), both tags nonce-stamped. Accepts `pa-XXXX`, `pa-XXXX.js` or the full script URL. See https://plausible.io/docs/script-update-guide.
+- The legacy `data-domain` snippet still renders when only `domains` is set (needed for multi-dashboard rollups).
+
+### Upgrade
+
+Run `php artisan migrate`: a new settings migration adds `plausible.script_id`.
+
 ## v3.1.0 - 2026-10-09
 
 - Every `<script>` rendered by the package carries Laravel's Vite CSP nonce when the app sets one (e.g. via laravel-security-headers), so nonce-based `script-src` policies work without `'unsafe-inline'`.
@@ -71,12 +82,14 @@ Drop Laravel 11 support (EOL, unpatched). Require `laravel/framework: ^12.61.1|^
    
    
    
+   
    ```
 2. Publish and run the settings migration:
    
    ```bash
    php artisan vendor:publish --tag=plausible-settings-migrations
    php artisan migrate
+   
    
    
    
@@ -93,6 +106,7 @@ Drop Laravel 11 support (EOL, unpatched). Require `laravel/framework: ^12.61.1|^
    $settings = app(PlausibleSettings::class);
    $settings->domains = 'example.com';
    $settings->save();
+   
    
    
    
