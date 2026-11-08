@@ -13,7 +13,7 @@ The package auto-registers its service provider and settings migration.
 
 - **No config file** -- all settings are stored in the database via `spatie/laravel-settings`.
 - **Blade view** -- include `<x-plausible::script />` or `@include('plausible::script')` in your layout.
-- The tracking script only renders when `domains` is not empty.
+- With `script_id` set (`pa-XXXX`), the current per-site Plausible snippet renders (`/js/pa-XXXX.js` + `plausible.init()`); otherwise the legacy `data-domain` snippet renders when `domains` is not empty (keep it for multi-dashboard rollups).
 - Supports self-hosted Plausible instances via the `host_analytics` setting.
 
 ### Settings (spatie/laravel-settings)
@@ -25,6 +25,7 @@ Group: `plausible`
 |----------|------|---------|-------------|
 | `domains` | `?string` | `null` | Comma-separated domain(s) to track |
 | `host_analytics` | `string` | `https://plausible.io` | Plausible instance URL |
+| `script_id` | `?string` | `null` | Per-site script id (`pa-XXXX`) from the current snippet; wins over `domains` |
 
 @verbatim
 <code-snippet name="read-settings" lang="php">
@@ -73,10 +74,22 @@ Include the tracking script in your layout's `<head>`:
 </code-snippet>
 @endverbatim
 
-The script renders as:
+With `script_id` the script renders as:
 
 @verbatim
 <code-snippet name="rendered-output" lang="html">
+<script async src="https://plausible.io/js/pa-XXXX.js"></script>
+<script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+</script>
+</code-snippet>
+@endverbatim
+
+Without it (legacy):
+
+@verbatim
+<code-snippet name="rendered-output-legacy" lang="html">
 <script defer data-domain="example.com"
         src="https://plausible.io/js/script.js"></script>
 </code-snippet>

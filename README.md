@@ -48,7 +48,7 @@ Add the following to your Blade layout (inside `<head>`):
 @include('plausible::script')
 ```
 
-The script tag will only be rendered when the `domains` setting is configured.
+With `script_id` set, the package renders Plausible's current per-site snippet (`<script async src=".../js/pa-XXXX.js">` + `plausible.init()`) — see Plausible's [script update guide](https://plausible.io/docs/script-update-guide). Otherwise it renders the legacy `data-domain` snippet when `domains` is set (keep that for multi-dashboard rollups, which the new script does not support). Nothing renders when both are empty.
 
 ### Configure settings
 
@@ -68,6 +68,9 @@ $settings->save();
 |---------|------|---------|-------------|
 | `domains` | `?string` | `null` | Domain(s) to track. Supports rollup reporting with comma-separated domains. |
 | `host_analytics` | `string` | `https://plausible.io` | Plausible host URL. Change this if you are self-hosting Plausible. |
+| `script_id` | `?string` | `null` | Per-site script id from the current snippet (`pa-XXXX`; a `.js` suffix or the full script URL also works). Wins over `domains`. |
+
+Upgrading from an earlier version? Run `php artisan migrate` — a new settings migration adds `plausible.script_id`.
 
 ### Self-hosted Plausible
 

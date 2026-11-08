@@ -56,5 +56,6 @@ class TestCase extends Orchestra
 
         $migrator->add('plausible.domains', null);
         $migrator->add('plausible.host_analytics', 'https://plausible.io');
+        $migrator->add('plausible.script_id', null);
     }
 }
